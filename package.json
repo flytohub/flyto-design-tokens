@@ -1,0 +1,27 @@
+{
+  "name": "@flyto/design-tokens",
+  "version": "0.1.0",
+  "description": "Shared design tokens for the Flyto Platform — purple/cyan brand, dark-first, used by flyto-cloud (Vue + UnoCSS) and flyto-cortex (React + Mantine + Tailwind).",
+  "type": "module",
+  "private": true,
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    },
+    "./css": "./css/tokens.css",
+    "./css/animations": "./css/animations.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "css",
+    "README.md"
+  ],
+  "author": "Flyto Platform",
+  "license": "UNLICENSED"
+}
