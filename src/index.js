@@ -1,10 +1,10 @@
 /**
- * @flyto/design-tokens — canonical design values for the Flyto Platform.
+ * @flyto2/design-tokens — canonical design values for the Flyto Platform.
  *
  * Two entry points:
  *
- *   import * as tokens from '@flyto/design-tokens'       // JS/TS
- *   @import '@flyto/design-tokens/css';                  // CSS custom properties
+ *   import * as tokens from '@flyto2/design-tokens'       // JS/TS
+ *   @import '@flyto2/design-tokens/css';                  // CSS custom properties
  *
  * Cloud (Vue + UnoCSS) consumes via a UnoCSS preset that maps these
  * values to utility names. Cortex (React + Tailwind v4 + Mantine) pulls

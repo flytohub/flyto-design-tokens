@@ -1,4 +1,4 @@
-/** Type definitions for @flyto/design-tokens.
+/** Type definitions for @flyto2/design-tokens.
  *
  * Deliberately simple — tokens are plain strings / records. No Mantine or
  * Tailwind types leak out so the package stays framework-agnostic.
