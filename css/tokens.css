@@ -71,27 +71,30 @@
 
   /* ======================================================================
      Colors — surface (dark only)
+     Revised: bump secondary/tertiary for stronger card-vs-background
+     contrast. The old #1e293b was too close to #0f172a on most monitors.
      ====================================================================== */
-  --flyto-surface:           #0f172a;
-  --flyto-surface-secondary: #1e293b;
-  --flyto-surface-tertiary:  #334155;
+  --flyto-surface:           #0c1222;
+  --flyto-surface-secondary: #151d2e;
+  --flyto-surface-tertiary:  #1e293b;
   --flyto-surface-overlay:   rgba(0, 0, 0, 0.7);
-  --flyto-surface-darkest:   #0F172A;
+  --flyto-surface-darkest:   #080e1a;
+  --flyto-surface-elevated:  #1a2436;
 
   /* ======================================================================
      Colors — text
      ====================================================================== */
-  --flyto-text-primary:   #f8fafc;
+  --flyto-text-primary:   #f1f5f9;
   --flyto-text-secondary: #cbd5e1;
-  --flyto-text-tertiary:  #94a3b8;
+  --flyto-text-tertiary:  #8b9cb5;
   --flyto-text-inverse:   #0f172a;
   --flyto-text-link:      var(--flyto-purple-400);
 
   /* ======================================================================
      Colors — border
      ====================================================================== */
-  --flyto-border:        rgba(148, 163, 184, 0.10);
-  --flyto-border-light:  rgba(148, 163, 184, 0.06);
+  --flyto-border:        rgba(148, 163, 184, 0.14);
+  --flyto-border-light:  rgba(148, 163, 184, 0.08);
   --flyto-border-focus:  var(--flyto-purple-500);
   --flyto-border-handle: #374151;
 
