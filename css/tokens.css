@@ -194,9 +194,19 @@
   /* ======================================================================
      Typography
      ====================================================================== */
+  /* Sans stack notes:
+   * - 'Inter' is the design font when self-hosted/CDN-loaded.
+   * - 'Segoe UI Variable' is the Windows 11 system font (replaces 'Segoe UI'
+   *   when available — sharper at fractional DPI than the legacy face).
+   * - system-ui catches platforms we haven't named (Linux, ChromeOS).
+   * - 'PingFang TC' / 'Microsoft JhengHei UI' / 'Hiragino Sans' cover CJK
+   *   so Chinese/Japanese text doesn't fall through to MingLiU/SimSun. */
   --flyto-font-sans: 'Inter', -apple-system, BlinkMacSystemFont,
-                     'Segoe UI', Roboto, sans-serif;
-  --flyto-font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+                     'Segoe UI Variable', 'Segoe UI', system-ui, Roboto,
+                     'PingFang TC', 'Microsoft JhengHei UI', 'Hiragino Sans',
+                     sans-serif;
+  --flyto-font-mono: ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo,
+                     'Cascadia Mono', Consolas, 'Courier New', monospace;
 
   --flyto-type-xs: 0.8125rem;
   --flyto-type-sm: 0.9375rem;
