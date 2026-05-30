@@ -2,8 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/@flyto2/design-tokens.svg)](https://www.npmjs.com/package/@flyto2/design-tokens)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Website](https://img.shields.io/badge/website-flyto2.com-8B5CF6)](https://flyto2.com)
-[![Docs](https://img.shields.io/badge/docs-docs.flyto2.com-06B6D4)](https://docs.flyto2.com)
+[![Website](https://img.shields.io/badge/website-flyto.io-8B5CF6)](https://flyto.io)
+[![Docs](https://img.shields.io/badge/docs-docs.flyto.io-06B6D4)](https://docs.flyto.io)
 
 Canonical design values for the **Flyto Platform** — shared between
 `flyto-cloud` (Vue 3 + UnoCSS) and `flyto-cortex` (React 19 + Mantine v8 +
