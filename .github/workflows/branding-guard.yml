@@ -22,15 +22,19 @@ jobs:
 
       - name: Scan for non-canonical brand domain
         run: |
-          # Match flyto2.com but allow the scoped npm package name @flyto2/...
-          # (rename is a tracked sub-decision, not drift).
-          hits=$(grep -rnI "flyto2\.com" . \
+          # Canonical domain is flyto.io. Build the banned domain from parts so
+          # this workflow never matches itself. Allow the scoped npm package
+          # name @flyto2/... (rename is a tracked sub-decision, not drift).
+          banned="flyto2${DOT}com"
+          hits=$(grep -rnI "$banned" . \
             --exclude-dir=.git \
             --exclude-dir=node_modules \
             | grep -v "@flyto2/" || true)
           if [ -n "$hits" ]; then
-            echo "::error::Non-canonical brand domain 'flyto2.com' found. Canonical is flyto.io (FLYA-10):"
+            echo "::error::Non-canonical brand domain found ($banned). Canonical is flyto.io (FLYA-10):"
             echo "$hits"
             exit 1
           fi
-          echo "✓ no non-canonical brand domain references"
+          echo "no non-canonical brand domain references"
+        env:
+          DOT: "."
