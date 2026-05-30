@@ -1,0 +1,36 @@
+name: Branding guard
+
+# Fails the PR when a non-canonical brand domain appears in source.
+# Canonical domain is flyto.io (FLYA-10). The npm package name
+# @flyto2/design-tokens is intentionally allowlisted until the
+# package-rename sub-decision lands.
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for non-canonical brand domain
+        run: |
+          # Match flyto2.com but allow the scoped npm package name @flyto2/...
+          # (rename is a tracked sub-decision, not drift).
+          hits=$(grep -rnI "flyto2\.com" . \
+            --exclude-dir=.git \
+            --exclude-dir=node_modules \
+            | grep -v "@flyto2/" || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Non-canonical brand domain 'flyto2.com' found. Canonical is flyto.io (FLYA-10):"
+            echo "$hits"
+            exit 1
+          fi
+          echo "✓ no non-canonical brand domain references"
