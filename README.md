@@ -5,7 +5,7 @@
 [![Website](https://img.shields.io/badge/website-flyto2.com-8B5CF6)](https://flyto2.com)
 [![Docs](https://img.shields.io/badge/docs-docs.flyto2.com-06B6D4)](https://docs.flyto2.com)
 
-Canonical design values for the **Flyto Platform** — shared between
+Canonical design values for the **Flyto2 Platform** — shared between
 `flyto-cloud` (Vue 3 + UnoCSS) and `flyto-cortex` (React 19 + Mantine v8 +
 Tailwind v4). One source of truth for colours, gradients, shadows,
 animations, radii, spacing, typography.
@@ -98,7 +98,7 @@ Map tokens → utilities with a short preset — e.g. `bg-flyto-purple` →
   token.
 - **No emoji.** Icon semantics belong to each product (cortex uses
   `lucide-react`; cloud uses `lucide-vue-next`).
-- **Purple before blue.** `#8B5CF6` is the Flyto brand colour; the blue
+- **Purple before blue.** `#8B5CF6` is the Flyto2 brand colour; the blue
   in gradients is cyan (`#06B6D4`), never a true blue.
 
 ## Changelog
