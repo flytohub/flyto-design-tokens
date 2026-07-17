@@ -1,4 +1,4 @@
-# @flyto2/design-tokens
+# Flyto2 Design Tokens
 
 [![npm](https://img.shields.io/npm/v/@flyto2/design-tokens.svg)](https://www.npmjs.com/package/@flyto2/design-tokens)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -12,6 +12,16 @@ animations, radii, spacing, typography.
 
 Dark-only. Purple brand (`#8B5CF6`) × cyan accent (`#06B6D4`) × pink/orange
 secondary accents.
+
+Use it when a Flyto2 frontend needs shared colors, typography, spacing, motion,
+shadow, radius, glass, and glow tokens without copying CSS between apps. It is
+the open-source design contract for public sites, Cloud UI, Cortex surfaces,
+plugin UIs, and future product shells.
+
+Official links: [flyto2.com](https://flyto2.com) ·
+[Docs](https://docs.flyto2.com) ·
+[npm](https://www.npmjs.com/package/@flyto2/design-tokens) ·
+[flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js)
 
 ## Install
 
@@ -28,7 +38,7 @@ consumer's `package.json`:
 
 (When we publish, flip `file:` → semver.)
 
-## Consume
+## Usage
 
 ### JavaScript / TypeScript
 
@@ -105,3 +115,20 @@ Map tokens → utilities with a short preset — e.g. `bg-flyto-purple` →
 
 See repo-level CHANGELOG. Bumping a token here is a platform-wide change
 — expect both Cloud and Cortex to rebuild their theme shell.
+
+## Testing
+
+```bash
+npm test
+npm run build
+```
+
+## Contributing
+
+Open a pull request for token additions, naming cleanups, docs, or package
+metadata. Token changes affect multiple Flyto2 frontends, so include the
+consumer impact in the PR description.
+
+## License
+
+Apache-2.0.
