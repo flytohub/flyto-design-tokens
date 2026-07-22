@@ -11,14 +11,22 @@
     "workflow-automation"
   ],
   "type": "module",
+  "scripts": {
+    "build": "npm pack --dry-run",
+    "docs:generate": "node scripts/generate-reference.mjs",
+    "docs:check": "node scripts/generate-reference.mjs --check",
+    "lint": "node --check src/index.js && node --check scripts/check-tokens.mjs && node --check scripts/generate-reference.mjs",
+    "test": "node scripts/check-tokens.mjs",
+    "check": "npm run lint && npm test",
+    "verify": "npm run docs:check && npm run lint && npm test && npm run build"
+  },
   "main": "./src/index.js",
   "module": "./src/index.js",
   "types": "./src/index.d.ts",
   "exports": {
     ".": {
       "types": "./src/index.d.ts",
-      "import": "./src/index.js",
-      "require": "./src/index.js"
+      "import": "./src/index.js"
     },
     "./css": "./css/tokens.css",
     "./css/animations": "./css/animations.css",
@@ -27,7 +35,11 @@
   "files": [
     "src",
     "css",
-    "README.md"
+    "docs/API.md",
+    "docs/FEATURES.md",
+    "docs/GENERATED_REFERENCE.md",
+    "README.md",
+    "CONTRIBUTING.md"
   ],
   "author": "Flyto2 (https://flyto2.com)",
   "license": "Apache-2.0",
@@ -38,7 +50,7 @@
     "url": "git+https://github.com/flytohub/flyto-design-tokens.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }

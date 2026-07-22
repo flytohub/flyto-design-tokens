@@ -23,20 +23,19 @@ Official links: [flyto2.com](https://flyto2.com) ·
 [npm](https://www.npmjs.com/package/@flyto2/design-tokens) ·
 [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js)
 
-## Install
+## Installation
 
-Today this lives in-repo and is consumed via a relative path. Add to the
-consumer's `package.json`:
+Install the public npm package:
 
-```json
-{
-  "dependencies": {
-    "@flyto2/design-tokens": "file:../flyto-design-tokens"
-  }
-}
+```bash
+npm install @flyto2/design-tokens
 ```
 
-(When we publish, flip `file:` → semver.)
+This is an ESM package. Use `import` or a dynamic `import()` from CommonJS; the
+package does not claim a synchronous `require()` entry point. Workspace
+maintainers testing unreleased changes may temporarily use
+`file:../flyto-design-tokens`, but released applications should pin a registry
+version through their lockfile.
 
 ## Usage
 
@@ -100,6 +99,32 @@ Map tokens → utilities with a short preset — e.g. `bg-flyto-purple` →
 | `radii`       | rect / node scales                                |
 | `spacing`     | spacing scale, layout constants, fonts, type      |
 
+## API
+
+The package exposes four entry points: the ESM/TypeScript root, canonical CSS
+variables, shared keyframes, and package metadata. The hand-written
+[API reference](docs/API.md) explains compatibility and intended use. The
+[generated reference](docs/GENERATED_REFERENCE.md) enumerates all 34 runtime
+exports, 129 CSS custom properties, and 12 keyframes directly from source so
+individual names cannot silently disappear from documentation.
+
+## Configuration
+
+There are no runtime environment variables, build plugins, provider settings,
+or framework peer dependencies. Import the root values into the consumer's
+theme system, import CSS once at application entry, and import the animation
+subpath only when shared keyframes are used. Consumer-specific aliases and
+component styles stay in the consuming application.
+
+## Architecture
+
+`src/` contains framework-neutral JavaScript modules and the matching
+`index.d.ts` declarations. `css/` contains the browser contract. Package
+`exports` limit supported import paths. `scripts/check-tokens.mjs` validates
+runtime/declaration/keyframe parity; `scripts/generate-reference.mjs` creates
+the exhaustive source-backed inventory. See [ARCHITECTURE.md](ARCHITECTURE.md)
+for ownership and compatibility boundaries.
+
 ## Invariants
 
 - **Dark only.** Never add light-mode overrides here. If light ever
@@ -119,15 +144,16 @@ See repo-level CHANGELOG. Bumping a token here is a platform-wide change
 ## Testing
 
 ```bash
-npm test
-npm run build
+npm run verify
+npm audit --audit-level=high
+flyto-index verify . --full-scan --strict
 ```
 
 ## Contributing
 
-Open a pull request for token additions, naming cleanups, docs, or package
-metadata. Token changes affect multiple Flyto2 frontends, so include the
-consumer impact in the PR description.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing token additions,
+naming changes, docs, or package metadata. Token changes affect multiple Flyto2
+frontends, so include consumer impact and visual verification evidence.
 
 ## License
 

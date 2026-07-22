@@ -1,6 +1,8 @@
 # Project
 
-`flyto-design-tokens` is a Flyto2 workspace repo.
+`flyto-design-tokens` is the framework-neutral JavaScript, CSS, and TypeScript
+contract for shared Flyto2 colors, gradients, elevation, focus, motion, shape,
+spacing, layout, and typography.
 
 Product lines:
 

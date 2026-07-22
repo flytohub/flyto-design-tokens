@@ -2,14 +2,15 @@
 
 ## P0
 
-- Preserve the repo boundary described in `ARCHITECTURE.md`.
-- Keep release-impacting changes covered by tests, guards, docs, or handoffs.
+- Publish `0.1.1` to npm after the release credential/trusted publisher is
+  configured and CI is green.
+- Verify visual changes in Cloud and Cortex consumers before release.
 
 ## P1
 
-- Raise or maintain health at target: C.
-- Keep product-line mapping current with Flyto2 release gates.
+- Add automated consumer fixture builds when stable public fixtures exist.
+- Define an explicit opt-in light contract only if a product requirement lands.
 
 ## P2
 
-- Expand docs as the repo's Flyto2 role matures.
+- Generate visual token previews without making screenshots the API authority.

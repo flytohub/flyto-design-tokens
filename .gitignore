@@ -1,5 +1,6 @@
 node_modules/
 dist/
+.flyto-index/
 .npm/
 .cache/
 *.log

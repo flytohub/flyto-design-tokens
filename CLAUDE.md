@@ -12,6 +12,10 @@ Start with:
 
 Never infer or reuse credentials from repository files or handoffs.
 
+Before editing exports, use `flyto-index search` and `flyto-index impact` to
+inspect the source and affected consumers. After editing, run `npm run verify`
+and `flyto-index verify . --full-scan --strict`.
+
 ## Flyto2 Project Memory Contract
 
 Every Flyto2 repository must keep this project-memory scaffold current:

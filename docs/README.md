@@ -1,14 +1,24 @@
-# Documentation Index
+# Flyto2 Design Tokens Documentation
 
-This directory holds durable documentation for `flyto-design-tokens`.
+## Consumer Reference
 
-Start with these root memory files:
+- [Feature reference](FEATURES.md) explains the shared visual contracts and
+  their intended use.
+- [API reference](API.md) lists every package entry point and exported token
+  family, plus compatibility rules.
+- [Generated reference](GENERATED_REFERENCE.md) lists every current runtime
+  export, CSS custom property, keyframe, and package entry point.
+- [README](../README.md) includes installation and JavaScript/CSS examples.
 
-- `../PROJECT.md`
-- `../ARCHITECTURE.md`
-- `../STATE.md`
-- `../ROADMAP.md`
-- `../DECISIONS.md`
-- `../tasks.md`
+## Maintainer Reference
 
-Frontend or public-surface documentation must follow the Flyto2 Frontend Quality Gate in `../AGENTS.md`.
+- [Architecture](../ARCHITECTURE.md)
+- [Current state](../STATE.md)
+- [Roadmap](../ROADMAP.md)
+- [Decisions](../DECISIONS.md)
+- [Tasks](../tasks.md)
+- [Security](../SECURITY.md)
+- [Changelog](../CHANGELOG.md)
+
+Run `npm run verify` after changing JavaScript exports, CSS variables,
+keyframes, type declarations, package entry points, or generated docs.

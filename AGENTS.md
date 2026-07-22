@@ -13,9 +13,13 @@ Rules:
 
 - Read `PROJECT.md`, `ARCHITECTURE.md`, `STATE.md`, and `DECISIONS.md` before
   implementation.
+- Before changing a public token, use `flyto-index search` and
+  `flyto-index impact` to inspect exports and likely consumers.
 - Do not write credentials or customer data into this repo.
 - Preserve `flyto-core` boundaries and product-line ownership.
 - Add tests, guards, docs, or handoff notes for release-impacting changes.
+- After a change, run `npm run verify` and
+  `flyto-index verify . --full-scan --strict` before publishing.
 
 ## Flyto2 Project Memory Contract
 
