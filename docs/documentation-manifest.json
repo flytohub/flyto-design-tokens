@@ -11,7 +11,9 @@
     "security": "SECURITY.md",
     "changelog": "CHANGELOG.md",
     "feature_reference": "docs/FEATURES.md",
-    "whitepaper": "docs/WHITEPAPER.md"
+    "whitepaper": "docs/WHITEPAPER.md",
+    "source_reference": "docs/GENERATED_REFERENCE.md",
+    "source_reference_exclude": ["scripts/**"]
   },
   "source_areas": [
     {
