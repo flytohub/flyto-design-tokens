@@ -54,3 +54,22 @@ Any frontend, website, dashboard, extension webview, app screen, or generated UI
 8. Hard-to-understand content: copy must be concrete, scannable, current, and consistent with Flyto2 terminology.
 
 Frontend verification must include the relevant automated checks plus manual or screenshot review for responsive layout, accessibility states, navigation clarity, loading/empty/error states, and content readability. Public pages must preserve SEO basics: canonical URL, sitemap coverage, metadata, structured data when relevant, and no broken internal or external links.
+
+## Repo notes
+
+Merged from `CLAUDE.md` so Codex and Claude read one set of rules.
+
+`flyto-design-tokens` participates in: cloud_apps_automation, security, data, zero_person_agent, big_data_intelligence.
+
+Start with:
+
+1. `PROJECT.md`
+2. `ARCHITECTURE.md`
+3. `STATE.md`
+4. `DECISIONS.md`
+
+Never infer or reuse credentials from repository files or handoffs.
+
+Before editing exports, use `flyto-index search` and `flyto-index impact` to
+inspect the source and affected consumers. After editing, run `npm run verify`
+and `flyto-index verify . --full-scan --strict`.
