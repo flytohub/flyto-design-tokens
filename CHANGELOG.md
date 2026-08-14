@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Added a governed Flyto2 coding contract for dependency installation, package
+  verification, and strict Indexer validation.
+
 - Added complete package/API documentation and a JavaScript/CSS/TypeScript
   contract smoke test.
 - Added a generated inventory for all runtime exports, CSS custom properties,

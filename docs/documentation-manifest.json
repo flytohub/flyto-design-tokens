@@ -31,7 +31,7 @@
     {
       "id": "package-quality",
       "description": "Package export metadata, public npm publication workflow, dependency-free parity checks, and package dry-run verification.",
-      "paths": ["package.json", "scripts/check-tokens.mjs", ".github/workflows/**"],
+      "paths": ["package.json", "scripts/check-tokens.mjs", ".github/workflows/**", ".flyto/coding.yaml"],
       "documentation": ["README.md#testing", "docs/API.md#compatibility", "CONTRIBUTING.md#verification"]
     },
     {

@@ -1,6 +1,10 @@
 # State
 
-Current state on 2026-07-22:
+Current state on 2026-08-14:
+
+- Governed coding jobs install the pinned dependency graph, run the complete
+  package verification suite, and require a strict Indexer pass through the
+  committed `.flyto/coding.yaml` contract.
 
 - Repo status: internal tooling
 - Product lines: cloud_apps_automation, security, data, zero_person_agent, big_data_intelligence
