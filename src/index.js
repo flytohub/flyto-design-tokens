@@ -1,15 +1,13 @@
 /**
- * @flyto2/design-tokens — canonical design values for the Flyto2 Platform.
+ * @flyto2/design-tokens — shared design values for Flyto2 frontends.
  *
  * Two entry points:
  *
  *   import * as tokens from '@flyto2/design-tokens'       // JS/TS
  *   @import '@flyto2/design-tokens/css';                  // CSS custom properties
  *
- * Cloud (Vue + UnoCSS) consumes via a UnoCSS preset that maps these
- * values to utility names. Cortex (React + Tailwind v4 + Mantine) pulls
- * the CSS variables directly and mirrors the JS values into the Mantine
- * theme at createTheme time.
+ * Consumer-specific framework adapters and component styles remain in each
+ * frontend repository.
  */
 
 export * as colors from './colors.js'

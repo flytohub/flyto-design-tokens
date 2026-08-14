@@ -5,9 +5,8 @@
    Import once in each app's global stylesheet:
      @import '@flyto2/design-tokens/css';
 
-   Every variable is namespaced with --flyto-*. App-specific aliases (e.g.
-   --color-brand in Cortex, --uno-brand in Cloud) can be defined on top of
-   these by the consuming project.
+   Every variable is namespaced with --flyto-*. App-specific aliases can be
+   defined on top of these by the consuming project.
 
    Dark is the canonical palette. Light mode, if ever shipped, would live
    in a separate file — do NOT add light overrides here. */
@@ -99,7 +98,7 @@
   --flyto-border-handle: #374151;
 
   /* ======================================================================
-     Colors — sidebar (matches flyto-cloud nav visual)
+     Colors — sidebar
      ====================================================================== */
   --flyto-sidebar-bg:      var(--flyto-surface-secondary);
   --flyto-sidebar-hover:   var(--flyto-surface-tertiary);
@@ -118,7 +117,7 @@
   --flyto-presence-6: var(--flyto-pink-500);
 
   /* ======================================================================
-     Colors — resource categories (Cortex-specific but declared centrally)
+     Colors — resource categories
      ====================================================================== */
   --flyto-category-document: var(--flyto-cyan-500);
   --flyto-category-code:     var(--flyto-purple-500);
@@ -148,7 +147,7 @@
   --flyto-gradient-blob-pink:
     radial-gradient(circle at center, rgba(236, 72, 153, 0.15) 0%, transparent 60%);
 
-  /* Node-type gradients — shared with cloud's WorkflowCanvas. */
+  /* Shared workflow-node gradients. */
   --flyto-node-purple:  linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
   --flyto-node-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
   --flyto-node-error:   linear-gradient(135deg, #EF4444 0%, #DC2626 100%);

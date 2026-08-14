@@ -1,4 +1,4 @@
-/** Spacing + typography scales. Common ground for Cortex + Cloud. */
+/** Shared spacing and typography scales for Flyto2 frontends. */
 
 export const spacing = {
   0: '0',
@@ -32,8 +32,7 @@ export const fonts = {
 }
 
 /**
- * Type scale — Cortex-tuned defaults with larger reading sizes than
- * Mantine's. Cloud uses the same numeric values.
+ * Shared type scale for consistent reading sizes across consuming frontends.
  */
 export const typeScale = {
   xs:  '0.8125rem',   // 13px

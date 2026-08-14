@@ -13,7 +13,7 @@ export const radii = {
   full: '9999px',
 }
 
-/** Node-specific radii — matched to cloud's nodeDesignSystem.css. */
+/** Shared workflow-node radii. */
 export const nodeRadii = {
   rectangle: '16px',
   square:    '12px',

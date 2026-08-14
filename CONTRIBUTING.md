@@ -26,8 +26,8 @@ npm audit --audit-level=high
 flyto-index verify . --full-scan --strict
 ```
 
-Include affected Cloud, Cortex, site, or plugin surfaces in the pull request and
-attach visual verification for any value that changes rendered output. Update
-`CHANGELOG.md` and the relevant API/feature documentation in the same change.
+Include affected consuming frontends in the pull request and attach visual
+verification for any value that changes rendered output. Update `CHANGELOG.md`
+and the relevant API/feature documentation in the same change.
 
 Report vulnerabilities privately through GitHub or `security@flyto2.com`.

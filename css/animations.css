@@ -2,8 +2,6 @@
    @flyto2/design-tokens — shared @keyframes
 
    Imported by any consumer that uses the flyto-prefixed animation names.
-   Cortex imports this once in styles/animations.css; Cloud imports from
-   its main.js.
    ========================================================================= */
 
 @keyframes flyto-fade-in {

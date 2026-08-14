@@ -1,9 +1,8 @@
 /**
  * Flyto2 brand palette.
  *
- * Source of truth for every product. Cloud uses these via UnoCSS preset;
- * Cortex injects them into Mantine theme + consumes as CSS variables.
- * Anything used visually anywhere in the platform should live here.
+ * Shared values belong here when multiple Flyto2 frontends need the same
+ * semantic role. Consumer-specific colors remain in the consuming repository.
  */
 
 /** Primary brand — purple. Used for primary actions, focus rings, active nav. */
@@ -20,7 +19,7 @@ export const purple = {
   900: '#4c1d95',
 }
 
-/** Accent — cyan. Used for AI / system callouts + gradient partner. */
+/** Accent — cyan. Used for informational callouts and as a gradient partner. */
 export const cyan = {
   50:  '#ecfeff',
   100: '#cffafe',
@@ -34,7 +33,7 @@ export const cyan = {
   900: '#164e63',
 }
 
-/** Accent — pink. Used for switch/loop nodes in cloud, avatars in cortex. */
+/** Accent — pink. Available for shared secondary emphasis. */
 export const pink = {
   400: '#f472b6',
   500: '#ec4899',
@@ -100,8 +99,8 @@ export const presence = [
 ]
 
 /**
- * Category tags — used by Cortex resource cards. Colours chosen to harmonise
- * with the four brand accents so a project-dashboard doesn't clash.
+ * Category tags. Colours harmonise with the four brand accents while keeping
+ * stable semantic roles across consuming frontends.
  */
 export const category = {
   document: cyan[500],

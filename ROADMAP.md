@@ -4,7 +4,7 @@
 
 - Publish `0.1.1` to npm after the release credential/trusted publisher is
   configured and CI is green.
-- Verify visual changes in Cloud and Cortex consumers before release.
+- Verify visual changes in affected consuming frontends before release.
 
 ## P1
 

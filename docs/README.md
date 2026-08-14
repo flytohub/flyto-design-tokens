@@ -1,5 +1,11 @@
 # Flyto2 Design Tokens Documentation
 
+One set of colors, spacing, type, and motion for every Flyto2 frontend.
+
+Start with the [README quick start](../README.md#quick-start) to install the
+package and import its CSS contract. This documentation keeps the broader API,
+compatibility, and implementation details available after that first result.
+
 ## Consumer Reference
 
 - [Whitepaper](WHITEPAPER.md) explains the cross-framework token contract,

@@ -2,17 +2,16 @@
 
 ## Abstract
 
-Flyto2 Design Tokens is the framework-neutral visual contract shared by Flyto2
-applications and plugin surfaces. It publishes semantic JavaScript values,
+Flyto2 Design Tokens provides one set of colors, spacing, type, and motion for
+every Flyto2 frontend. It publishes framework-neutral JavaScript values,
 TypeScript declarations, CSS custom properties, and animation keyframes without
 owning a component library or application layout.
 
 ## Why A Token Contract
 
-Copying colors, spacing, motion, and elevation into each frontend creates
-silent drift and makes accessibility changes expensive. A versioned package
-lets consumers share stable semantic roles while keeping framework-specific
-components and product workflows local.
+Flyto2 frontends drift when each repository invents its own design values. A
+versioned package lets consumers share stable semantic roles while keeping
+framework-specific components and product workflows local.
 
 ## Contract Layers
 
@@ -50,4 +49,3 @@ Dependency-free parity tests load package entry points and compare runtime,
 declaration, CSS, and keyframe surfaces. Documentation generation rejects
 inventory drift, and package dry runs verify what npm consumers actually
 receive.
-

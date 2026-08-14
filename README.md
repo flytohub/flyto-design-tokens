@@ -5,25 +5,40 @@
 [![Website](https://img.shields.io/badge/website-flyto2.com-8B5CF6)](https://flyto2.com)
 [![Docs](https://img.shields.io/badge/docs-docs.flyto2.com-06B6D4)](https://docs.flyto2.com)
 
-Canonical design values for the **Flyto2 Platform** — shared between
-`flyto-cloud` (Vue 3 + UnoCSS) and `flyto-cortex` (React 19 + Mantine v8 +
-Tailwind v4). One source of truth for colours, gradients, shadows,
-animations, radii, spacing, typography.
+One set of colors, spacing, type, and motion for every Flyto2 frontend.
 
-Dark-only. Purple brand (`#8B5CF6`) × cyan accent (`#06B6D4`) × pink/orange
-secondary accents.
+Flyto2 frontends drift when each repository invents its own design values.
 
-Use it when a Flyto2 frontend needs shared colors, typography, spacing, motion,
-shadow, radius, glass, and glow tokens without copying CSS between apps. It is
-the open-source design contract for public sites, Cloud UI, Cortex surfaces,
-plugin UIs, and future product shells.
+## Quick start
+
+Install the package:
+
+```bash
+npm install @flyto2/design-tokens
+```
+
+Import the shared CSS values once in the frontend's global stylesheet:
+
+```css
+@import '@flyto2/design-tokens/css';
+
+.card {
+  padding: var(--flyto-page-padding);
+  color: var(--flyto-text-primary);
+  transition: var(--flyto-transition-normal);
+}
+```
+
+The package also exposes the same design contract as framework-neutral ESM and
+TypeScript declarations. It does not provide components or application
+layouts.
 
 Official links: [flyto2.com](https://flyto2.com) ·
 [Docs](https://docs.flyto2.com) ·
 [npm](https://www.npmjs.com/package/@flyto2/design-tokens) ·
 [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js)
 
-## Installation
+## Installation details
 
 Install the public npm package:
 
@@ -82,11 +97,6 @@ createTheme({
 }
 ```
 
-### UnoCSS preset (Cloud)
-
-Map tokens → utilities with a short preset — e.g. `bg-flyto-purple` →
-`--flyto-purple-500`, `shadow-flyto-card` → `--flyto-shadow-card`.
-
 ## What's inside
 
 | Module        | Contains                                          |
@@ -101,12 +111,12 @@ Map tokens → utilities with a short preset — e.g. `bg-flyto-purple` →
 
 ## API
 
-The package exposes four entry points: the ESM/TypeScript root, canonical CSS
-variables, shared keyframes, and package metadata. The hand-written
-[API reference](docs/API.md) explains compatibility and intended use. The
-[generated reference](docs/GENERATED_REFERENCE.md) enumerates all 34 runtime
-exports, 129 CSS custom properties, and 12 keyframes directly from source so
-individual names cannot silently disappear from documentation.
+The package exposes an ESM/TypeScript root, canonical CSS variables, shared
+keyframes, and package metadata. The hand-written [API reference](docs/API.md)
+explains compatibility and intended use. The
+[generated reference](docs/GENERATED_REFERENCE.md) inventories the exact
+runtime exports, CSS custom properties, keyframes, and package entry points
+directly from source.
 
 ## Configuration
 
@@ -131,15 +141,14 @@ for ownership and compatibility boundaries.
   ships, it lives in a separate file + opt-in import.
 - **135° gradients** by convention. Anything else is a one-off, not a
   token.
-- **No emoji.** Icon semantics belong to each product (cortex uses
-  `lucide-react`; cloud uses `lucide-vue-next`).
+- **No emoji.** Icon semantics belong to each consuming frontend.
 - **Purple before blue.** `#8B5CF6` is the Flyto2 brand colour; the blue
   in gradients is cyan (`#06B6D4`), never a true blue.
 
 ## Changelog
 
-See repo-level CHANGELOG. Bumping a token here is a platform-wide change
-— expect both Cloud and Cortex to rebuild their theme shell.
+See the repo-level CHANGELOG. Changing a published token can affect every
+frontend that consumes it, so coordinate upgrades and visual verification.
 
 ## Testing
 

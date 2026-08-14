@@ -11,8 +11,9 @@ Current state on 2026-08-14:
 - Health target: C
 - Public package: `@flyto2/design-tokens`; npm currently serves `0.1.0`, while
   this repository prepares `0.1.1` for the next release.
-- Contract: four ESM/CSS/package entry points, 34 JavaScript exports, 129 CSS
-  custom properties, and 12 keyframes.
+- Contract: framework-neutral ESM/TypeScript values, CSS custom properties,
+  animation keyframes, and package metadata. Exact current counts are generated
+  from source in `docs/GENERATED_REFERENCE.md`.
 - Verification: generated-reference check, syntax lint, exhaustive export/type/
   keyframe smoke test, package dry run, dependency audit, documentation
   contract, and Flyto2 Indexer strict verification.

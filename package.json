@@ -1,7 +1,7 @@
 {
   "name": "@flyto2/design-tokens",
   "version": "0.1.1",
-  "description": "Shared design tokens for the Flyto2 Platform — purple/cyan brand, dark-first, used by flyto-cloud (Vue + UnoCSS) and flyto-cortex (React + Mantine + Tailwind).",
+  "description": "One set of colors, spacing, type, and motion for every Flyto2 frontend.",
   "keywords": [
     "flyto2",
     "design-tokens",
