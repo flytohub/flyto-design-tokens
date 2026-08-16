@@ -3,8 +3,8 @@
 # Flyto2 Design Tokens Generated Reference
 
 This inventory is generated from the package manifest and runtime source. It
-contains 4 package entry points, 34 JavaScript exports,
-129 CSS custom properties, and 12 CSS keyframes.
+contains 4 package entry points, 35 JavaScript exports,
+148 CSS custom properties, and 12 CSS keyframes.
 
 ## Package Entry Points
 
@@ -26,10 +26,11 @@ scalar exports. TypeScript declarations are maintained in `src/index.d.ts`.
 | `animationShorthands` | object | borderFlow, fadeIn, fadeInUp, float, gradientShift, shimmer, slideUp, spin |
 | `border` | object | default, focus, handle, light |
 | `borderFlow` | string | linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899, #f59e0b, #8b5cf6) |
+| `brand` | object | base, deep, focusRing, strong |
 | `brandAccent` | string | linear-gradient(90deg, #8b5cf6, #06b6d4) |
 | `brandPrimary` | string | linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) |
 | `category` | object | archive, code, config, data, document, media |
-| `colors` | object | border, category, cyan, orange, pink, presence, purple, semantic, surface, text |
+| `colors` | object | border, brand, category, cyan, orange, pink, presence, purple, semantic, surface, text |
 | `cyan` | object | 100, 200, 300, 400, 50, 500, 600, 700, 800, 900 |
 | `durations` | object | fast, normal, slow, verySlow |
 | `easings` | object | emphasized, linear, overshoot, standard |
@@ -75,6 +76,9 @@ contract.
 | `--flyto-border-focus` | `var(--flyto-purple-500)` |
 | `--flyto-border-handle` | `#374151` |
 | `--flyto-border-light` | `rgba(148, 163, 184, 0.08)` |
+| `--flyto-brand` | `var(--flyto-purple-500)` |
+| `--flyto-brand-deep` | `var(--flyto-purple-700)` |
+| `--flyto-brand-strong` | `var(--flyto-purple-600)` |
 | `--flyto-category-archive` | `#475569` |
 | `--flyto-category-code` | `var(--flyto-purple-500)` |
 | `--flyto-category-config` | `#64748b` |
@@ -101,6 +105,7 @@ contract.
 | `--flyto-error` | `#ef4444` |
 | `--flyto-error-bg` | `rgba(239, 68, 68, 0.15)` |
 | `--flyto-error-dark` | `#dc2626` |
+| `--flyto-focus-ring` | `var(--flyto-purple-400)` |
 | `--flyto-font-mono` | `ui-monospace, 'JetBrains Mono', 'SF Mono', Menlo,                      'Cascadia Mono', Consolas, 'Courier New', monospace` |
 | `--flyto-font-sans` | `'Inter', -apple-system, BlinkMacSystemFont,                      'Segoe UI Variable', 'Segoe UI', system-ui, Roboto,                      'PingFang TC', 'Microsoft JhengHei UI', 'Hiragino Sans',                      sans-serif` |
 | `--flyto-glow-cyan` | `0 4px 15px rgba(6, 182, 212, 0.40)` |
@@ -174,6 +179,21 @@ contract.
 | `--flyto-sidebar-section` | `var(--flyto-text-tertiary)` |
 | `--flyto-sidebar-text` | `var(--flyto-text-secondary)` |
 | `--flyto-sidebar-width` | `260px` |
+| `--flyto-space-0` | `0` |
+| `--flyto-space-1` | `4px` |
+| `--flyto-space-10` | `40px` |
+| `--flyto-space-12` | `48px` |
+| `--flyto-space-16` | `64px` |
+| `--flyto-space-2` | `8px` |
+| `--flyto-space-20` | `80px` |
+| `--flyto-space-24` | `96px` |
+| `--flyto-space-3` | `12px` |
+| `--flyto-space-32` | `128px` |
+| `--flyto-space-4` | `16px` |
+| `--flyto-space-5` | `20px` |
+| `--flyto-space-6` | `24px` |
+| `--flyto-space-8` | `32px` |
+| `--flyto-space-px` | `1px` |
 | `--flyto-success` | `#10b981` |
 | `--flyto-success-bg` | `rgba(16, 185, 129, 0.15)` |
 | `--flyto-success-dark` | `#059669` |

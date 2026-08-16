@@ -1,5 +1,31 @@
 # Decisions
 
+## 2026-08-17 - Consumers bind to brand roles, never to ramp steps
+
+Decision: the package exposes four brand roles — `brand.base`, `brand.strong`,
+`brand.deep`, `brand.focusRing`, mirrored as `--flyto-brand`,
+`--flyto-brand-strong`, `--flyto-brand-deep`, `--flyto-focus-ring` — and those
+are what consuming frontends reference. `--flyto-purple-500` and the rest of
+the ramp stay published, but a consumer stylesheet binding directly to a ramp
+step is treated as a defect. Each role is declared as a reference to the ramp,
+never as a copy of the hex, and a contract check enforces that.
+
+Reason: a step is a position, not a meaning. A stylesheet that says
+`purple[500]` records neither why the colour is there nor what else should move
+with it, so a regional, white-label, or accessibility-driven recolour has no
+single place to change and has to be done by search-and-replace across every
+consumer. Roles make the swap a one-line edit here.
+
+## 2026-08-17 - The spacing scale is published to CSS, whole
+
+Decision: `css/tokens.css` emits the complete `spacing` scale as
+`--flyto-space-*`, not the subset any one consumer currently needs.
+
+Reason: the scale was JavaScript-only, so CSS consumers copied the numbers into
+their own variables and the shared scale stopped being shared. A partial export
+would reproduce that the first time a consumer needed a step we had not
+emitted.
+
 ## 2026-08-14 - Public positioning stays at the token boundary
 
 Decision: describe the package as "One set of colors, spacing, type, and motion

@@ -11,6 +11,14 @@ export const cyan:    ColorScale
 export const pink:    ColorScale
 export const orange:  ColorScale
 
+export interface BrandColors {
+  base: string
+  strong: string
+  deep: string
+  focusRing: string
+}
+export const brand: BrandColors
+
 export interface SemanticColors {
   success: string
   successDark: string

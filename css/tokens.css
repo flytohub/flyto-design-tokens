@@ -53,6 +53,19 @@
   --flyto-orange-600: #d97706;
 
   /* ======================================================================
+     Colors — brand roles
+     Bind to these, never to a step on the purple ramp. A step is a position,
+     not a meaning: `--flyto-purple-500` in a consuming stylesheet says nothing
+     about why that colour is there, and a regional or white-label build has
+     no single place to change. These four are the whole brand surface a
+     consumer is allowed to see.
+     ====================================================================== */
+  --flyto-brand:        var(--flyto-purple-500);
+  --flyto-brand-strong: var(--flyto-purple-600);  /* filled surface; white text clears 4.5:1 */
+  --flyto-brand-deep:   var(--flyto-purple-700);  /* pressed/active filled surface */
+  --flyto-focus-ring:   var(--flyto-purple-400);  /* focus outline on any dark surface */
+
+  /* ======================================================================
      Colors — semantic
      ====================================================================== */
   --flyto-success:      #10b981;
@@ -154,6 +167,30 @@
   --flyto-node-warning: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   --flyto-node-info:    linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
   --flyto-node-fork:    linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+
+  /* ======================================================================
+     Spacing
+     The same 4px scale `spacing` has always exported to JavaScript. It was
+     simply never emitted here, so CSS consumers hand-rolled their own copy —
+     which is how a shared scale stops being shared. The whole scale is emitted
+     rather than the handful anyone happens to need today: a partial export is
+     the same drift with a slower fuse.
+     ====================================================================== */
+  --flyto-space-0:   0;
+  --flyto-space-px:  1px;
+  --flyto-space-1:   4px;
+  --flyto-space-2:   8px;
+  --flyto-space-3:   12px;
+  --flyto-space-4:   16px;
+  --flyto-space-5:   20px;
+  --flyto-space-6:   24px;
+  --flyto-space-8:   32px;
+  --flyto-space-10:  40px;
+  --flyto-space-12:  48px;
+  --flyto-space-16:  64px;
+  --flyto-space-20:  80px;
+  --flyto-space-24:  96px;
+  --flyto-space-32:  128px;
 
   /* ======================================================================
      Radii
