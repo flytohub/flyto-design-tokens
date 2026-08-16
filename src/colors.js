@@ -47,6 +47,22 @@ export const orange = {
   600: '#d97706',
 }
 
+/**
+ * Brand roles.
+ *
+ * Consumers bind to a role, never to a step on the purple scale. A step is a
+ * position in a ramp; it carries no meaning, so `purple[500]` in a consumer
+ * stylesheet is unreadable and — more to the point — unswappable. A regional
+ * or white-label build changes `brand` here and every consumer follows; if the
+ * consumers had bound to `purple[500]` there would be nothing to change.
+ */
+export const brand = {
+  base:      purple[500],
+  strong:    purple[600],   // filled brand surfaces: white text clears 4.5:1
+  deep:      purple[700],   // pressed / active state of a filled surface
+  focusRing: purple[400],   // focus outline, on any surface in the dark palette
+}
+
 /** Semantic colors — aligned across products. */
 export const semantic = {
   success: '#10b981',

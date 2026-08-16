@@ -18,7 +18,7 @@ export * as radii from './radii.js'
 export * as spacing from './spacing.js'
 
 // Direct re-exports for the common-case "just give me purple" call site.
-export { purple, cyan, pink, orange, semantic, surface, text, border, presence, category } from './colors.js'
+export { purple, cyan, pink, orange, brand, semantic, surface, text, border, presence, category } from './colors.js'
 export { brandPrimary, brandAccent, borderFlow, glassCard, glassCardHover } from './gradients.js'
 export { shadows as shadowTokens, focusRing, glow } from './shadows.js'
 export { durations, easings, keyframes as keyframeNames, animations as animationShorthands } from './animations.js'
