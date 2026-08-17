@@ -41,6 +41,9 @@
   --flyto-border-light: rgba(148, 163, 184, 0.08);
   --flyto-border-strong: color-mix(in srgb, var(--flyto-status-idle) 26%, transparent);
   --flyto-border-handle: #374151;
+  --flyto-focus-ring: var(--flyto-purple-400);
+  --flyto-border-focus: var(--flyto-purple-500);
+  --flyto-shadow-focus: 0 0 0 3px rgba(139, 92, 246, 0.25);
   --flyto-sidebar-bg: var(--flyto-surface-secondary);
   --flyto-sidebar-hover: var(--flyto-surface-tertiary);
   --flyto-sidebar-active: rgba(139, 92, 246, 0.15);

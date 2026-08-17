@@ -78,6 +78,17 @@
   --flyto-border-strong: #d1d5db;
   --flyto-border-handle: #9ca3af;
 
+  /* The focus ring has to move too, and for a harder reason than the others:
+     WCAG 2.2 SC 1.4.11 wants 3:1 for a focus indicator against what it sits on,
+     and purple-400 measures 2.72:1 on white. It is not a subtle miss — a
+     keyboard user on a light build would be tracking a ring they can barely
+     see. purple-600 is 5.70:1. `--flyto-border-focus` clears 3:1 at 4.23:1 and
+     stays on the brand step, because it is drawn on a control's own edge rather
+     than as the outline. */
+  --flyto-focus-ring:   var(--flyto-purple-600);
+  --flyto-border-focus: var(--flyto-purple-500);
+  --flyto-shadow-focus: 0 0 0 3px rgba(124, 58, 237, 0.30);
+
   /* ======================================================================
      Sidebar
      ====================================================================== */

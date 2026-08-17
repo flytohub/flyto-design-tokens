@@ -103,6 +103,10 @@ for (const [name, darkOnly] of Object.entries({
   '--flyto-status-stopped': '#f87171',
   '--flyto-status-idle': '#94a3b8',
   '--flyto-text-link': 'var(--flyto-purple-400)',
+  /* SC 1.4.11: a focus indicator needs 3:1 against its surroundings, and
+   * purple-400 is 2.72:1 on white. Reusing the dark ring in light mode is a
+   * keyboard-accessibility regression, not a cosmetic one. */
+  '--flyto-focus-ring': 'var(--flyto-purple-400)',
 })) {
   const value = lightValue(name)
   assert.ok(value, `light palette must define ${name}`)
