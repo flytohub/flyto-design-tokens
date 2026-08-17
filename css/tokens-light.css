@@ -1,0 +1,151 @@
+/* =========================================================================
+   @flyto2/design-tokens — light palette
+   =========================================================================
+
+   `css/tokens.css` has always said light mode, if it ever shipped, would live
+   in a separate file. This is that file.
+
+   It redefines only the semantic layer — surfaces, text, borders, sidebar,
+   status, shadows. Ramps, spacing, radii, type and motion are mode-independent
+   and stay where they are; a light build imports both files and gets one set of
+   ramps with a different set of roles pointed at them.
+
+   Use with `css/tokens-dark.css` for a product that has both:
+
+     @import '@flyto2/design-tokens/css';           // ramps + the dark defaults
+     @import '@flyto2/design-tokens/css/light';     // roles become light on :root
+     @import '@flyto2/design-tokens/css/dark';      // roles go dark again under .dark
+
+   A dark-only product imports nothing new and is completely unaffected.
+
+   This is not a mechanical inversion, and it cannot be
+   ---------------------------------------------------
+
+   The status hues are the reason. Every one of them is tuned against a
+   near-black ground, and measured against white they collapse:
+
+     teal   #2dd4bf  1.86:1     amber #f59e0b  2.15:1
+     red    #f87171  2.77:1     slate #94a3b8  2.56:1
+
+   None of those is legible as text, and three are below 3:1 as a non-text
+   indicator. So light mode takes the same hues several steps darker, chosen so
+   each clears 4.5:1 on `--flyto-surface` and can therefore carry a label rather
+   than only a dot:
+
+     teal   #0f766e  5.47:1     amber #b45309  5.02:1
+     red    #dc2626  4.83:1     slate #64748b  4.76:1
+
+   `--flyto-text-link` moves for the same reason: purple-400 is 2.72:1 on white
+   and purple-500 is 4.23:1, so neither is usable for a link. purple-600 is
+   5.70:1.
+
+   Surface separation is the other asymmetry. On dark, panels are lifted by
+   raising lightness; on light, raising it further is not available, so the
+   ramp descends into greys and depth leans harder on the border — which is why
+   `--flyto-border` is a solid grey here rather than a low-alpha slate. The
+   step from `--flyto-surface` to `--flyto-surface-secondary` is 1.045:1, small
+   enough that the border does the work and the page does not look striped.
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ======================================================================
+     Surfaces — white up, greys down
+     ====================================================================== */
+  --flyto-surface:           #ffffff;
+  --flyto-surface-secondary: #f9fafb;
+  --flyto-surface-tertiary:  #f3f4f6;
+  --flyto-surface-elevated:  #ffffff;
+  --flyto-surface-darkest:   #e5e7eb;
+  --flyto-surface-overlay:   rgba(15, 23, 42, 0.45);
+
+  /* ======================================================================
+     Text — all four clear 4.5:1 on --flyto-surface
+     primary 17.74:1 · secondary 7.56:1 · tertiary 4.83:1 · link 5.70:1
+     ====================================================================== */
+  --flyto-text-primary:   #111827;
+  --flyto-text-secondary: #4b5563;
+  --flyto-text-tertiary:  #6b7280;
+  --flyto-text-inverse:   #ffffff;
+  --flyto-text-link:      var(--flyto-purple-600);
+
+  /* ======================================================================
+     Borders — solid greys, because depth cannot come from lightness here
+     ====================================================================== */
+  --flyto-border:        #e5e7eb;
+  --flyto-border-light:  #f3f4f6;
+  --flyto-border-strong: #d1d5db;
+  --flyto-border-handle: #9ca3af;
+
+  /* The focus ring has to move too, and for a harder reason than the others:
+     WCAG 2.2 SC 1.4.11 wants 3:1 for a focus indicator against what it sits on,
+     and purple-400 measures 2.72:1 on white. It is not a subtle miss — a
+     keyboard user on a light build would be tracking a ring they can barely
+     see. purple-600 is 5.70:1. `--flyto-border-focus` clears 3:1 at 4.23:1 and
+     stays on the brand step, because it is drawn on a control's own edge rather
+     than as the outline. */
+  --flyto-focus-ring:   var(--flyto-purple-600);
+  --flyto-border-focus: var(--flyto-purple-500);
+  --flyto-shadow-focus: 0 0 0 3px rgba(124, 58, 237, 0.30);
+
+  /* ======================================================================
+     Sidebar
+     ====================================================================== */
+  --flyto-sidebar-bg:      var(--flyto-surface-secondary);
+  --flyto-sidebar-hover:   var(--flyto-surface-tertiary);
+  --flyto-sidebar-active:  rgba(124, 58, 237, 0.10);
+  --flyto-sidebar-text:    var(--flyto-text-secondary);
+  --flyto-sidebar-section: var(--flyto-text-tertiary);
+
+  /* ======================================================================
+     Semantic — darkened so a label, not only an icon, stays readable
+     ====================================================================== */
+  --flyto-success:      #047857;
+  --flyto-success-dark: #065f46;
+  --flyto-success-bg:   rgba(4, 120, 87, 0.10);
+  --flyto-warning:      #b45309;
+  --flyto-warning-dark: #92400e;
+  --flyto-warning-bg:   rgba(180, 83, 9, 0.10);
+  --flyto-error:        #dc2626;
+  --flyto-error-dark:   #b91c1c;
+  --flyto-error-bg:     rgba(220, 38, 38, 0.10);
+  --flyto-info:         #1d4ed8;
+  --flyto-info-dark:    #1e40af;
+  --flyto-info-bg:      rgba(29, 78, 216, 0.10);
+
+  /* ======================================================================
+     Operational status — see the note above; these are not the dark hues
+     healthy 5.47:1 · attention 5.02:1 · stopped 4.83:1 · idle 4.76:1
+     ====================================================================== */
+  --flyto-status-healthy:        #0f766e;
+  --flyto-status-healthy-soft:   color-mix(in srgb, var(--flyto-status-healthy) 10%, transparent);
+  --flyto-status-attention:      #b45309;
+  --flyto-status-attention-soft: color-mix(in srgb, var(--flyto-status-attention) 10%, transparent);
+  --flyto-status-stopped:        #dc2626;
+  --flyto-status-stopped-soft:   color-mix(in srgb, var(--flyto-status-stopped) 10%, transparent);
+  --flyto-status-idle:           #64748b;
+  --flyto-status-idle-soft:      color-mix(in srgb, var(--flyto-status-idle) 10%, transparent);
+
+  /* ======================================================================
+     Shadows — far lighter. The dark alphas read as soot on white.
+     ====================================================================== */
+  --flyto-shadow-xs:    0 1px 2px rgba(15, 23, 42, 0.04);
+  --flyto-shadow-sm:    0 1px 3px rgba(15, 23, 42, 0.06);
+  --flyto-shadow-md:    0 4px 12px rgba(15, 23, 42, 0.08);
+  --flyto-shadow-lg:    0 8px 24px rgba(15, 23, 42, 0.10);
+  --flyto-shadow-xl:    0 16px 48px rgba(15, 23, 42, 0.12);
+  --flyto-shadow-card:       0 1px 3px rgba(15, 23, 42, 0.06);
+  --flyto-shadow-card-hover: 0 4px 12px rgba(15, 23, 42, 0.10);
+  --flyto-shadow-popup:      0 4px 16px rgba(15, 23, 42, 0.12),
+                             0 0 0 1px rgba(15, 23, 42, 0.05);
+
+  /* ======================================================================
+     Glass card — the dark gradient is opaque slate; on light it is plain white
+     over the page, so the "glass" is carried by the border instead.
+     ====================================================================== */
+  --flyto-gradient-glass-card:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(249, 250, 251, 0.96) 100%);
+  --flyto-gradient-glass-card-hover:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(243, 244, 246, 0.98) 100%);
+}

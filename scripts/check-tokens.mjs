@@ -18,6 +18,8 @@ for (const name of requiredExports) {
 
 const css = await readFile(new URL('../css/tokens.css', import.meta.url), 'utf8')
 const animations = await readFile(new URL('../css/animations.css', import.meta.url), 'utf8')
+const light = await readFile(new URL('../css/tokens-light.css', import.meta.url), 'utf8')
+const darkOverride = await readFile(new URL('../css/tokens-dark.css', import.meta.url), 'utf8')
 const declarations = await readFile(new URL('../src/index.d.ts', import.meta.url), 'utf8')
 
 const cssVariables = [
@@ -87,6 +89,40 @@ for (const name of Object.values(tokens.keyframeNames)) {
 
 for (const name of Object.keys(tokens)) {
   assert.match(declarations, new RegExp(`\\b${name}\\b`), `missing TypeScript declaration: ${name}`)
+}
+
+/* Light mode is not a mechanical inversion and must not become one. The status
+ * hues tuned against a near-black ground measure 1.86:1 to 2.77:1 on white —
+ * illegible — so the light file has to give them its own values. Assert that
+ * it does, or a future edit "simplifying" the light file by reusing the dark
+ * hues will pass every other check while making four states unreadable. */
+const lightValue = (name) => light.match(new RegExp(`${name}:\\s*([^;]+);`))?.[1].trim()
+for (const [name, darkOnly] of Object.entries({
+  '--flyto-status-healthy': '#2dd4bf',
+  '--flyto-status-attention': 'var(--flyto-warning)',
+  '--flyto-status-stopped': '#f87171',
+  '--flyto-status-idle': '#94a3b8',
+  '--flyto-text-link': 'var(--flyto-purple-400)',
+  /* SC 1.4.11: a focus indicator needs 3:1 against its surroundings, and
+   * purple-400 is 2.72:1 on white. Reusing the dark ring in light mode is a
+   * keyboard-accessibility regression, not a cosmetic one. */
+  '--flyto-focus-ring': 'var(--flyto-purple-400)',
+})) {
+  const value = lightValue(name)
+  assert.ok(value, `light palette must define ${name}`)
+  assert.notEqual(
+    value, darkOnly,
+    `${name} must not reuse its dark value in the light palette; it fails contrast on white`,
+  )
+}
+
+/* The dark override exists to restore what the light file overrode. If it
+ * misses a name, that role stays light in dark mode. */
+for (const name of light.matchAll(/^\s*(--flyto-[\w-]+):/gm)) {
+  assert.ok(
+    darkOverride.includes(`${name[1]}:`),
+    `css/tokens-dark.css must restore ${name[1]}, which the light palette redefines`,
+  )
 }
 
 process.stdout.write(`design token contract passed: ${Object.keys(tokens).length} exports\n`)
