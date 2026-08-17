@@ -3,7 +3,7 @@
 # Flyto2 Design Tokens Generated Reference
 
 This inventory is generated from the package manifest and runtime source. It
-contains 4 package entry points, 41 JavaScript exports,
+contains 6 package entry points, 41 JavaScript exports,
 176 CSS custom properties, and 12 CSS keyframes.
 
 ## Package Entry Points
@@ -13,6 +13,8 @@ contains 4 package entry points, 41 JavaScript exports,
 | `.` | `types: ./src/index.d.ts; import: ./src/index.js` |
 | `./css` | `./css/tokens.css` |
 | `./css/animations` | `./css/animations.css` |
+| `./css/dark` | `./css/tokens-dark.css` |
+| `./css/light` | `./css/tokens-light.css` |
 | `./package.json` | `./package.json` |
 
 ## JavaScript Exports
