@@ -11,6 +11,9 @@ export const radii = {
   '2xl': '16px',   // node cards, hero tiles
   '3xl': '20px',
   full: '9999px',
+  /* Between lg and xl on purpose: at operator density 8px is tight against a
+   * one-pixel seam and 12px starts reading as a consumer card. */
+  dense: '10px',
 }
 
 /** Shared workflow-node radii. */

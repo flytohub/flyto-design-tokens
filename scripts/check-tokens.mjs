@@ -4,7 +4,8 @@ import { readFile } from 'node:fs/promises'
 import * as tokens from '../src/index.js'
 
 const requiredExports = [
-  'purple', 'cyan', 'brand', 'semantic', 'surface', 'text', 'border',
+  'purple', 'cyan', 'brand', 'semantic', 'status', 'surface', 'surfaceDense',
+  'text', 'textDense', 'border', 'shadowsDense', 'controlHeights', 'typeScaleDense',
   'brandPrimary', 'brandAccent', 'glassCard',
   'shadowTokens', 'focusRing', 'glow',
   'durations', 'easings', 'keyframeNames', 'animationShorthands',
@@ -22,7 +23,10 @@ const declarations = await readFile(new URL('../src/index.d.ts', import.meta.url
 const cssVariables = [
   '--flyto-purple-500', '--flyto-cyan-500', '--flyto-brand', '--flyto-success',
   '--flyto-gradient-brand-primary', '--flyto-shadow-focus', '--flyto-focus-ring',
-  '--flyto-radius-lg', '--flyto-font-sans', '--flyto-duration-normal',
+  '--flyto-radius-lg', '--flyto-radius-dense', '--flyto-font-sans',
+  '--flyto-duration-normal', '--flyto-surface-dense-ground',
+  '--flyto-text-dense-primary', '--flyto-status-healthy', '--flyto-border-strong',
+  '--flyto-control-h', '--flyto-type-dense-md',
 ]
 for (const name of cssVariables) {
   assert.ok(css.includes(`${name}:`), `missing CSS variable: ${name}`)
@@ -42,6 +46,33 @@ const brandRoleReferences = {
 for (const [name, expected] of Object.entries(brandRoleReferences)) {
   assert.equal(cssValue(name), expected, `${name} must be declared as ${expected}`)
 }
+
+/* Each JS record that is also published as CSS must agree with the CSS, name
+ * for name and value for value. This is the check the package did not have
+ * when `colors.js` and `tokens.css` drifted apart on surfaces, text and
+ * borders — a drift that is still open and deliberately out of scope here, so
+ * the guard covers only the records this change introduces. */
+const mirroredRecords = [
+  ['--flyto-surface-dense-', tokens.surfaceDense],
+  ['--flyto-text-dense-', tokens.textDense],
+  ['--flyto-status-', tokens.status],
+  ['--flyto-type-dense-', tokens.typeScaleDense],
+  ['--flyto-shadow-dense-', tokens.shadowsDense],
+]
+for (const [prefix, record] of mirroredRecords) {
+  for (const [key, value] of Object.entries(record)) {
+    const name = `${prefix}${key.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}`
+    const css = cssValue(name)
+    if (value.startsWith('var(') || css?.startsWith('var(') || css?.startsWith('color-mix(')) continue
+    assert.equal(css, value, `${name} must match its JavaScript counterpart`)
+  }
+}
+
+const controlHeightNames = { sm: '--flyto-control-h-sm', md: '--flyto-control-h', lg: '--flyto-control-h-lg', touch: '--flyto-control-h-touch' }
+for (const [key, name] of Object.entries(controlHeightNames)) {
+  assert.equal(cssValue(name), tokens.controlHeights[key], `${name} must match controlHeights.${key}`)
+}
+assert.equal(cssValue('--flyto-radius-dense'), tokens.radiiTokens.dense, '--flyto-radius-dense must match radiiTokens.dense')
 
 for (const [step, value] of Object.entries(tokens.spacingTokens)) {
   assert.equal(

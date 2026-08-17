@@ -1,5 +1,26 @@
 # Decisions
 
+## 2026-08-17: Density is a published dimension, not a consumer's private fork
+
+Decision: the package publishes a second, denser set alongside the normal one —
+`surfaceDense`, `textDense`, `status`, `controlHeights`, `typeScaleDense`,
+`--flyto-radius-dense`, `shadowsDense`. A product picks one ramp per surface and
+stays on it. Operational `status` is kept separate from `semantic` rather than
+folded into it.
+
+Reason: consumers building control rooms and monitoring consoles were inventing
+these locally — Cloud had 48 of them under its own prefix — because the shared
+set only described one density. A value a consumer must invent is a value that
+drifts. Publishing the dimension keeps one source without pretending every
+surface should look the same.
+
+`status` stays separate from `semantic` because they answer different questions.
+`semantic.success` answers "did this operation succeed", read once after an
+action; `status.healthy` answers "what is this thing doing right now", read
+continuously. Teal rather than emerald for healthy: beside amber on a dark
+ground, emerald separates by lightness, and lightness is the first thing a
+glance loses.
+
 ## 2026-08-17 - Consumers bind to brand roles, never to ramp steps
 
 Decision: the package exposes four brand roles — `brand.base`, `brand.strong`,

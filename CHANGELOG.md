@@ -17,6 +17,18 @@
 
 ### Added
 
+- Added a dense semantic layer for high-density operator surfaces: a second
+  surface ramp (`surfaceDense` / `--flyto-surface-dense-*`), a three-level dense
+  text ramp, an operational `status` family (healthy / attention / stopped /
+  idle, each with a soft tint mixed from its own hue), `--flyto-border-strong`,
+  a control-height scale including the coarse-pointer minimum, a dense type
+  ramp, `--flyto-radius-dense`, and two dense shadows. All additive; no existing
+  token changes value.
+- Added a mirror guard: every JavaScript record published as CSS must agree with
+  the CSS name for name and value for value. Scoped to the records this change
+  introduces, because the pre-existing `colors.js` / `tokens.css` drift on
+  surfaces, text and borders is still open.
+
 - Added brand role tokens — `brand` in JavaScript, `--flyto-brand`,
   `--flyto-brand-strong`, `--flyto-brand-deep` and `--flyto-focus-ring` in CSS —
   so consumers bind to a role instead of a step on the purple ramp. Every role

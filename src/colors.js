@@ -84,6 +84,38 @@ export const surface = {
   overlay:   'rgba(0, 0, 0, 0.7)',
 }
 
+/**
+ * Dense surfaces — a second, deeper ramp for high-density operator UI.
+ *
+ * Not a theme and not a replacement: a product picks one ramp per surface.
+ * The normal ramp is tuned to lift a card off a page at reading distance,
+ * which fails in the other direction — panels packed four to a screen need a
+ * ground low enough that a one-pixel seam still reads as separation. The step
+ * from `ground` to `panel` is 1.085:1, and that is the whole depth budget.
+ */
+export const surfaceDense = {
+  ground: '#080a12',
+  sunken: '#05070d',
+  panel:  '#101522',
+  raised: '#151b2c',
+  hover:  '#1a2136',
+}
+
+/**
+ * Operational status — orthogonal to `semantic`, and deliberately not the same
+ * hues. `semantic.success`/`error` answer "did this operation succeed"; these
+ * answer "what is this thing doing right now", read continuously rather than
+ * once after an action. Teal rather than emerald for healthy, because emerald
+ * beside amber on a dark ground separates by lightness and lightness is what a
+ * glance loses first.
+ */
+export const status = {
+  healthy:   '#2dd4bf',
+  attention: orange[500],
+  stopped:   '#f87171',
+  idle:      '#94a3b8',
+}
+
 /** Text colours on dark surfaces. */
 export const text = {
   primary:   '#f8fafc',
@@ -91,6 +123,17 @@ export const text = {
   tertiary:  '#94a3b8',
   inverse:   '#0f172a',
   link:      purple[400],
+}
+
+/**
+ * Dense text ramp. Three levels, never four — a fourth becomes a gradient of
+ * near-identical greys at this size. Read at 11-14px on `surfaceDense`, where
+ * the ramp above stops separating.
+ */
+export const textDense = {
+  primary: '#e8ecf6',
+  muted:   '#97a1b8',
+  faint:   '#7d879e',
 }
 
 /** Borders — subtle by default, branded for focus. */

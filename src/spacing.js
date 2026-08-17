@@ -32,6 +32,19 @@ export const fonts = {
 }
 
 /**
+ * Control heights. The package had no control scale at all, which is why every
+ * consumer invented one. `md` is the dense default; `touch` is the accessible
+ * minimum a coarse pointer needs regardless of viewport width, because a
+ * touchscreen wall display is wide and still not clickable at 32px.
+ */
+export const controlHeights = {
+  sm:    '26px',
+  md:    '32px',
+  lg:    '38px',
+  touch: '44px',
+}
+
+/**
  * Shared type scale for consistent reading sizes across consuming frontends.
  */
 export const typeScale = {
@@ -44,4 +57,17 @@ export const typeScale = {
   h3:  '1.375rem',
   h2:  '1.75rem',
   h1:  '2.25rem',
+}
+
+/**
+ * Dense type ramp. Sits below `typeScale` and overlaps it at one step — `md`
+ * here is `typeScale.xs` — which is the seam between a settings page and a
+ * console. A product on this ramp fits meaningfully more state on one screen;
+ * nothing else should use it.
+ */
+export const typeScaleDense = {
+  xs: '0.6875rem',   // 11px
+  sm: '0.75rem',     // 12px
+  md: '0.8125rem',   // 13px — same step as typeScale.xs
+  lg: '0.875rem',    // 14px
 }

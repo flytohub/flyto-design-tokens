@@ -16,6 +16,15 @@ export const shadows = {
   popup:       '0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06)',
 }
 
+/**
+ * Dense shadows. Two, because on `surfaceDense` the neutral family above reads
+ * as smudge rather than lift. Used only where something genuinely floats.
+ */
+export const shadowsDense = {
+  float:   '0 4px 12px rgba(0, 0, 0, 0.35)',
+  overlay: '0 16px 40px rgba(0, 0, 0, 0.5)',
+}
+
 /** Focus ring — purple, used on keyboard focus + brand ownership signals. */
 export const focusRing = '0 0 0 3px rgba(139, 92, 246, 0.25)'
 
