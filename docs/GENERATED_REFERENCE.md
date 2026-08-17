@@ -3,8 +3,8 @@
 # Flyto2 Design Tokens Generated Reference
 
 This inventory is generated from the package manifest and runtime source. It
-contains 4 package entry points, 35 JavaScript exports,
-148 CSS custom properties, and 12 CSS keyframes.
+contains 6 package entry points, 41 JavaScript exports,
+176 CSS custom properties, and 12 CSS keyframes.
 
 ## Package Entry Points
 
@@ -13,6 +13,8 @@ contains 4 package entry points, 35 JavaScript exports,
 | `.` | `types: ./src/index.d.ts; import: ./src/index.js` |
 | `./css` | `./css/tokens.css` |
 | `./css/animations` | `./css/animations.css` |
+| `./css/dark` | `./css/tokens-dark.css` |
+| `./css/light` | `./css/tokens-light.css` |
 | `./package.json` | `./package.json` |
 
 ## JavaScript Exports
@@ -30,7 +32,8 @@ scalar exports. TypeScript declarations are maintained in `src/index.d.ts`.
 | `brandAccent` | string | linear-gradient(90deg, #8b5cf6, #06b6d4) |
 | `brandPrimary` | string | linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) |
 | `category` | object | archive, code, config, data, document, media |
-| `colors` | object | border, brand, category, cyan, orange, pink, presence, purple, semantic, surface, text |
+| `colors` | object | border, brand, category, cyan, orange, pink, presence, purple, semantic, status, surface, surfaceDense, text, textDense |
+| `controlHeights` | object | lg, md, sm, touch |
 | `cyan` | object | 100, 200, 300, 400, 50, 500, 600, 700, 800, 900 |
 | `durations` | object | fast, normal, slow, verySlow |
 | `easings` | object | emphasized, linear, overshoot, standard |
@@ -48,15 +51,20 @@ scalar exports. TypeScript declarations are maintained in `src/index.d.ts`.
 | `presence` | array | 0, 1, 2, 3, 4, 5 |
 | `purple` | object | 100, 200, 300, 400, 50, 500, 600, 700, 800, 900 |
 | `radii` | object | nodeRadii, radii |
-| `radiiTokens` | object | 2xl, 3xl, full, lg, md, sm, xl, xs |
+| `radiiTokens` | object | 2xl, 3xl, dense, full, lg, md, sm, xl, xs |
 | `semantic` | object | error, errorDark, info, infoDark, success, successDark, warning, warningDark |
-| `shadows` | object | focusRing, glow, shadows |
+| `shadows` | object | focusRing, glow, shadows, shadowsDense |
+| `shadowsDense` | object | float, overlay |
 | `shadowTokens` | object | card, cardHover, lg, md, popup, sm, xl, xs |
-| `spacing` | object | fonts, layout, spacing, typeScale |
+| `spacing` | object | controlHeights, fonts, layout, spacing, typeScale, typeScaleDense |
 | `spacingTokens` | object | 0, 1, 10, 12, 16, 2, 20, 24, 3, 32, 4, 5, 6, 8, px |
+| `status` | object | attention, healthy, idle, stopped |
 | `surface` | object | base, darkest, overlay, secondary, tertiary |
+| `surfaceDense` | object | ground, hover, panel, raised, sunken |
 | `text` | object | inverse, link, primary, secondary, tertiary |
+| `textDense` | object | faint, muted, primary |
 | `typeScale` | object | h1, h2, h3, h4, lg, md, sm, xl, xs |
+| `typeScaleDense` | object | lg, md, sm, xs |
 
 ## Source Functions
 
@@ -76,6 +84,7 @@ contract.
 | `--flyto-border-focus` | `var(--flyto-purple-500)` |
 | `--flyto-border-handle` | `#374151` |
 | `--flyto-border-light` | `rgba(148, 163, 184, 0.08)` |
+| `--flyto-border-strong` | `color-mix(in srgb, var(--flyto-status-idle) 26%, transparent)` |
 | `--flyto-brand` | `var(--flyto-purple-500)` |
 | `--flyto-brand-deep` | `var(--flyto-purple-700)` |
 | `--flyto-brand-strong` | `var(--flyto-purple-600)` |
@@ -86,6 +95,10 @@ contract.
 | `--flyto-category-document` | `var(--flyto-cyan-500)` |
 | `--flyto-category-media` | `var(--flyto-pink-500)` |
 | `--flyto-content-max` | `1280px` |
+| `--flyto-control-h` | `32px` |
+| `--flyto-control-h-lg` | `38px` |
+| `--flyto-control-h-sm` | `26px` |
+| `--flyto-control-h-touch` | `44px` |
 | `--flyto-cyan-100` | `#cffafe` |
 | `--flyto-cyan-200` | `#a5f3fc` |
 | `--flyto-cyan-300` | `#67e8f9` |
@@ -158,6 +171,7 @@ contract.
 | `--flyto-purple-900` | `#4c1d95` |
 | `--flyto-radius-2xl` | `16px` |
 | `--flyto-radius-3xl` | `20px` |
+| `--flyto-radius-dense` | `10px` |
 | `--flyto-radius-full` | `9999px` |
 | `--flyto-radius-lg` | `8px` |
 | `--flyto-radius-md` | `6px` |
@@ -166,6 +180,8 @@ contract.
 | `--flyto-radius-xs` | `2px` |
 | `--flyto-shadow-card` | `0 4px 12px rgba(0, 0, 0, 0.3)` |
 | `--flyto-shadow-card-hover` | `0 8px 24px rgba(0, 0, 0, 0.4)` |
+| `--flyto-shadow-dense-float` | `0 4px 12px rgba(0, 0, 0, 0.35)` |
+| `--flyto-shadow-dense-overlay` | `0 16px 40px rgba(0, 0, 0, 0.5)` |
 | `--flyto-shadow-focus` | `0 0 0 3px rgba(139, 92, 246, 0.25)` |
 | `--flyto-shadow-lg` | `0 8px 24px rgba(0, 0, 0, 0.5)` |
 | `--flyto-shadow-md` | `0 4px 12px rgba(0, 0, 0, 0.4)` |
@@ -194,15 +210,31 @@ contract.
 | `--flyto-space-6` | `24px` |
 | `--flyto-space-8` | `32px` |
 | `--flyto-space-px` | `1px` |
+| `--flyto-status-attention` | `var(--flyto-warning)` |
+| `--flyto-status-attention-soft` | `color-mix(in srgb, var(--flyto-status-attention) 14%, transparent)` |
+| `--flyto-status-healthy` | `#2dd4bf` |
+| `--flyto-status-healthy-soft` | `color-mix(in srgb, var(--flyto-status-healthy) 14%, transparent)` |
+| `--flyto-status-idle` | `#94a3b8` |
+| `--flyto-status-idle-soft` | `color-mix(in srgb, var(--flyto-status-idle) 12%, transparent)` |
+| `--flyto-status-stopped` | `#f87171` |
+| `--flyto-status-stopped-soft` | `color-mix(in srgb, var(--flyto-status-stopped) 14%, transparent)` |
 | `--flyto-success` | `#10b981` |
 | `--flyto-success-bg` | `rgba(16, 185, 129, 0.15)` |
 | `--flyto-success-dark` | `#059669` |
 | `--flyto-surface` | `#0c1222` |
 | `--flyto-surface-darkest` | `#080e1a` |
+| `--flyto-surface-dense-ground` | `#080a12` |
+| `--flyto-surface-dense-hover` | `#1a2136` |
+| `--flyto-surface-dense-panel` | `#101522` |
+| `--flyto-surface-dense-raised` | `#151b2c` |
+| `--flyto-surface-dense-sunken` | `#05070d` |
 | `--flyto-surface-elevated` | `#1a2436` |
 | `--flyto-surface-overlay` | `rgba(0, 0, 0, 0.7)` |
 | `--flyto-surface-secondary` | `#151d2e` |
 | `--flyto-surface-tertiary` | `#1e293b` |
+| `--flyto-text-dense-faint` | `#7d879e` |
+| `--flyto-text-dense-muted` | `#97a1b8` |
+| `--flyto-text-dense-primary` | `#e8ecf6` |
 | `--flyto-text-inverse` | `#0f172a` |
 | `--flyto-text-link` | `var(--flyto-purple-400)` |
 | `--flyto-text-primary` | `#f1f5f9` |
@@ -212,6 +244,10 @@ contract.
 | `--flyto-transition-fast` | `all var(--flyto-duration-fast) var(--flyto-ease-standard)` |
 | `--flyto-transition-normal` | `all var(--flyto-duration-normal) var(--flyto-ease-standard)` |
 | `--flyto-transition-slow` | `all var(--flyto-duration-slow) var(--flyto-ease-standard)` |
+| `--flyto-type-dense-lg` | `0.875rem` |
+| `--flyto-type-dense-md` | `0.8125rem` |
+| `--flyto-type-dense-sm` | `0.75rem` |
+| `--flyto-type-dense-xs` | `0.6875rem` |
 | `--flyto-type-lg` | `1.1875rem` |
 | `--flyto-type-md` | `1.0625rem` |
 | `--flyto-type-sm` | `0.9375rem` |

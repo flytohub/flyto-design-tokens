@@ -31,6 +31,30 @@ export interface SemanticColors {
 }
 export const semantic: SemanticColors
 
+export interface StatusColors {
+  healthy: string
+  attention: string
+  stopped: string
+  idle: string
+}
+export const status: StatusColors
+
+export interface SurfaceDenseColors {
+  ground: string
+  sunken: string
+  panel: string
+  raised: string
+  hover: string
+}
+export const surfaceDense: SurfaceDenseColors
+
+export interface TextDenseColors {
+  primary: string
+  muted: string
+  faint: string
+}
+export const textDense: TextDenseColors
+
 export interface SurfaceColors {
   darkest: string
   base: string
@@ -87,6 +111,12 @@ export interface ShadowTokens {
 }
 export const shadowTokens: ShadowTokens
 
+export interface ShadowsDense {
+  float: string
+  overlay: string
+}
+export const shadowsDense: ShadowsDense
+
 export const focusRing: string
 export interface Glow {
   purple: string
@@ -131,6 +161,14 @@ export interface Layout {
 }
 export const layout: Layout
 
+export interface ControlHeights {
+  sm: string
+  md: string
+  lg: string
+  touch: string
+}
+export const controlHeights: ControlHeights
+
 export interface Fonts {
   sans: string
   mono: string
@@ -138,6 +176,7 @@ export interface Fonts {
 export const fonts: Fonts
 
 export const typeScale: Record<string, string>
+export const typeScaleDense: Record<string, string>
 
 /* Namespaced re-exports — for code that prefers `tokens.colors.purple[500]`. */
 export * as colors from './colors.js'

@@ -17,6 +17,31 @@
 
 ### Added
 
+- Added a light palette, `css/tokens-light.css`, and the dark override that
+  makes dual-mode possible, `css/tokens-dark.css`. A dark-only consumer imports
+  nothing new and is unaffected. **It is not a mechanical inversion:** the
+  status hues are tuned against a near-black ground and measure 1.86:1 to
+  2.77:1 on white, so the light palette gives them its own values, each clearing
+  4.5:1. `--flyto-text-link` moves from purple-400 (2.72:1 on white) to
+  purple-600 (5.70:1) for the same reason.
+- Added `scripts/generate-dark-override.mjs`. The dark override is generated,
+  because it is by definition a second copy of values that already exist and
+  hand-maintaining it would reintroduce the drift this package exists to
+  prevent. `npm run docs:check` fails when it is stale, and the contract check
+  fails if the light palette reuses a dark status hue.
+
+- Added a dense semantic layer for high-density operator surfaces: a second
+  surface ramp (`surfaceDense` / `--flyto-surface-dense-*`), a three-level dense
+  text ramp, an operational `status` family (healthy / attention / stopped /
+  idle, each with a soft tint mixed from its own hue), `--flyto-border-strong`,
+  a control-height scale including the coarse-pointer minimum, a dense type
+  ramp, `--flyto-radius-dense`, and two dense shadows. All additive; no existing
+  token changes value.
+- Added a mirror guard: every JavaScript record published as CSS must agree with
+  the CSS name for name and value for value. Scoped to the records this change
+  introduces, because the pre-existing `colors.js` / `tokens.css` drift on
+  surfaces, text and borders is still open.
+
 - Added brand role tokens — `brand` in JavaScript, `--flyto-brand`,
   `--flyto-brand-strong`, `--flyto-brand-deep` and `--flyto-focus-ring` in CSS —
   so consumers bind to a role instead of a step on the purple ramp. Every role

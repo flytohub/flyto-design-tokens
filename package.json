@@ -13,9 +13,9 @@
   "type": "module",
   "scripts": {
     "build": "npm pack --dry-run",
-    "docs:generate": "node scripts/generate-reference.mjs",
-    "docs:check": "node scripts/generate-reference.mjs --check",
-    "lint": "node --check src/index.js && node --check scripts/check-tokens.mjs && node --check scripts/generate-reference.mjs",
+    "docs:generate": "node scripts/generate-reference.mjs && node scripts/generate-dark-override.mjs",
+    "docs:check": "node scripts/generate-reference.mjs --check && node scripts/generate-dark-override.mjs --check",
+    "lint": "node --check src/index.js && node --check scripts/check-tokens.mjs && node --check scripts/generate-reference.mjs && node --check scripts/generate-dark-override.mjs",
     "test": "node scripts/check-tokens.mjs",
     "check": "npm run lint && npm test",
     "verify": "npm run docs:check && npm run lint && npm test && npm run build"
@@ -30,6 +30,8 @@
     },
     "./css": "./css/tokens.css",
     "./css/animations": "./css/animations.css",
+    "./css/dark": "./css/tokens-dark.css",
+    "./css/light": "./css/tokens-light.css",
     "./package.json": "./package.json"
   },
   "files": [
@@ -46,7 +48,9 @@
   "author": "Flyto2 (https://flyto2.com)",
   "license": "Apache-2.0",
   "homepage": "https://flyto2.com",
-  "bugs": { "url": "https://github.com/flytohub/flyto-design-tokens/issues" },
+  "bugs": {
+    "url": "https://github.com/flytohub/flyto-design-tokens/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flytohub/flyto-design-tokens.git"

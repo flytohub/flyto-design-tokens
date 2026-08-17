@@ -94,6 +94,25 @@
   --flyto-surface-elevated:  #1a2436;
 
   /* ======================================================================
+     Colors — dense surfaces
+     A second, deeper ramp for high-density operator surfaces: control rooms,
+     wall displays, monitoring consoles. Not a replacement for the ramp above
+     and not a theme — a product picks one ramp per surface and stays on it.
+
+     It exists because the normal ramp is tuned to lift a card off a page at
+     reading distance, and that tuning fails in the other direction. Panels
+     packed four to a screen under room light need a ground low enough that a
+     one-pixel seam and a small lightness step are still legible as separation;
+     the step between `ground` and `panel` here is 1.085:1, and that is the
+     whole depth budget.
+     ====================================================================== */
+  --flyto-surface-dense-ground: #080a12;
+  --flyto-surface-dense-sunken: #05070d;
+  --flyto-surface-dense-panel:  #101522;
+  --flyto-surface-dense-raised: #151b2c;
+  --flyto-surface-dense-hover:  #1a2136;
+
+  /* ======================================================================
      Colors — text
      ====================================================================== */
   --flyto-text-primary:   #f1f5f9;
@@ -102,13 +121,51 @@
   --flyto-text-inverse:   #0f172a;
   --flyto-text-link:      var(--flyto-purple-400);
 
+  /* Dense text ramp. Three levels, no more, because a fourth becomes a
+     gradient of near-identical greys at this size. Cooler and slightly
+     brighter than the ramp above: these are read at 11-14px on the dense
+     surfaces, where the normal ramp's steps stop separating. */
+  --flyto-text-dense-primary: #e8ecf6;
+  --flyto-text-dense-muted:   #97a1b8;
+  --flyto-text-dense-faint:   #7d879e;
+
   /* ======================================================================
      Colors — border
      ====================================================================== */
   --flyto-border:        rgba(148, 163, 184, 0.14);
   --flyto-border-light:  rgba(148, 163, 184, 0.08);
   --flyto-border-focus:  var(--flyto-purple-500);
+  /* Slate at a higher alpha — a seam you are meant to notice, for grouping
+     inside a dense grid where `--flyto-border` disappears. Derived from the
+     idle status hue so all three slate lines move together. */
+  --flyto-border-strong: color-mix(in srgb, var(--flyto-status-idle) 26%, transparent);
   --flyto-border-handle: #374151;
+
+  /* ======================================================================
+     Colors — operational status
+
+     Orthogonal to the semantic block above, and deliberately not the same
+     hues. `success`/`error` answer "did this operation succeed"; these answer
+     "what is this thing doing right now", which is read continuously and at a
+     glance rather than once after an action.
+
+     Teal rather than emerald for healthy, because emerald beside amber on a
+     dark ground reads as "a green thing" instead of "this is fine" — the two
+     separate by lightness, not hue, and lightness is what a glance loses
+     first. Stopped is lighter than `--flyto-error` because full-strength red
+     on a near-black ground vibrates.
+
+     Each soft variant is mixed from its own hue, so recolouring a status
+     carries its tint with it.
+     ====================================================================== */
+  --flyto-status-healthy:        #2dd4bf;
+  --flyto-status-healthy-soft:   color-mix(in srgb, var(--flyto-status-healthy) 14%, transparent);
+  --flyto-status-attention:      var(--flyto-warning);
+  --flyto-status-attention-soft: color-mix(in srgb, var(--flyto-status-attention) 14%, transparent);
+  --flyto-status-stopped:        #f87171;
+  --flyto-status-stopped-soft:   color-mix(in srgb, var(--flyto-status-stopped) 14%, transparent);
+  --flyto-status-idle:           #94a3b8;
+  --flyto-status-idle-soft:      color-mix(in srgb, var(--flyto-status-idle) 12%, transparent);
 
   /* ======================================================================
      Colors — sidebar
@@ -204,6 +261,11 @@
   --flyto-radius-3xl:  20px;
   --flyto-radius-full: 9999px;
 
+  /* Dense radius. Between `lg` and `xl` on purpose: at operator density 8px
+     is tight against a one-pixel seam and 12px starts reading as a consumer
+     card. */
+  --flyto-radius-dense: 10px;
+
   /* ======================================================================
      Shadows
      ====================================================================== */
@@ -217,6 +279,11 @@
   --flyto-shadow-popup:      0 4px 16px rgba(0, 0, 0, 0.5),
                              0 0 0 1px rgba(255, 255, 255, 0.06);
   --flyto-shadow-focus:      0 0 0 3px rgba(139, 92, 246, 0.25);
+
+  /* Dense shadows. Two, because on the dense ground the shadows above read as
+     smudges rather than lift. Used only where something genuinely floats. */
+  --flyto-shadow-dense-float:   0 4px 12px rgba(0, 0, 0, 0.35);
+  --flyto-shadow-dense-overlay: 0 16px 40px rgba(0, 0, 0, 0.5);
 
   /* Branded glows — paired with the five accent colours. */
   --flyto-glow-purple:    0 4px 15px rgba(139, 92, 246, 0.40);
@@ -250,6 +317,16 @@
   --flyto-type-lg: 1.1875rem;
   --flyto-type-xl: 1.4375rem;
 
+  /* Dense type ramp. Sits below the ramp above and overlaps it at one step
+     (`dense-md` is `--flyto-type-xs`), which is the seam between a settings
+     page and a console. A product on the dense ramp fits meaningfully more
+     state on one screen and its operator scrolls less; nothing else should
+     use it. */
+  --flyto-type-dense-xs: 0.6875rem;   /* 11px */
+  --flyto-type-dense-sm: 0.75rem;     /* 12px */
+  --flyto-type-dense-md: 0.8125rem;   /* 13px — same step as --flyto-type-xs */
+  --flyto-type-dense-lg: 0.875rem;    /* 14px */
+
   /* ======================================================================
      Layout
      ====================================================================== */
@@ -258,6 +335,16 @@
   --flyto-page-padding:    24px;
   --flyto-page-padding-lg: 96px;
   --flyto-content-max:     1280px;
+
+  /* Control heights. The package had no control scale at all, which is why
+     every consumer invented one. `--flyto-control-h` is the dense default;
+     `touch` is the accessible minimum a coarse pointer needs regardless of
+     viewport width, because a touchscreen wall display is wide and still not
+     clickable at 32px. */
+  --flyto-control-h-sm:    26px;
+  --flyto-control-h:       32px;
+  --flyto-control-h-lg:    38px;
+  --flyto-control-h-touch: 44px;
 
   /* ======================================================================
      Motion
